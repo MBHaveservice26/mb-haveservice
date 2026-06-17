@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ydelser — M&B Haveservice</title>
+  <meta name="description" content="Vores kerneydelser: græsslåning, hækklipning, ukrudtsbekæmpelse og fliserens. Kvalitet og pålidelighed hver gang.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="monogram">M&amp;B</span>
+        <span class="brand-name">M&amp;B Haveservice<small>Have &amp; Ejendom</small></span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="ydelser.html" class="active">Ydelser</a></li>
+          <li><a href="referencer.html">Referencer</a></li>
+          <li><a href="om-os.html">Om os</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="section-tight" style="padding-top:90px;">
+    <div class="container section-head">
+      <p class="eyebrow">Ydelser</p>
+      <h2>Alt din have har brug for</h2>
+      <p>Vi tilbyder et udvalg af kerneydelser inden for have- og ejendomspleje — udført med samme omhu, uanset opgavens størrelse.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="services-list">
+        <div class="service-card">
+          <span class="idx">01</span>
+          <h3>Græsslåning</h3>
+          <p>Vi holder din græsplæne tæt, jævn og frisk gennem hele sæsonen. Rene kanter og et ensartet resultat, hver gang vi har været forbi.</p>
+          <span class="price">Kontakt os for et tilbud</span>
+        </div>
+        <div class="service-card">
+          <span class="idx">02</span>
+          <h3>Hækklipning</h3>
+          <p>Skarpe, lige hække der giver haven struktur og ro. Vi klipper med præcision og rydder grundigt op efter os.</p>
+          <span class="price">Kontakt os for et tilbud</span>
+        </div>
+        <div class="service-card">
+          <span class="idx">03</span>
+          <h3>Ukrudtsbekæmpelse</h3>
+          <p>Vi fjerner ukrudt fra bede, fliser og kanter, så haven fremstår velplejet. En grundig indsats, der holder haven pæn længere.</p>
+          <span class="price">Kontakt os for et tilbud</span>
+        </div>
+        <div class="service-card">
+          <span class="idx">04</span>
+          <h3>Fliserens</h3>
+          <p>Terrasser, indkørsler og stier får nyt liv. Vi fjerner mos, alger og snavs, så belægningen igen står ren og indbydende.</p>
+          <span class="price">Kontakt os for et tilbud</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cta">
+    <div class="container">
+      <p class="eyebrow">Mangler du noget særligt?</p>
+      <h2>Vi finder en løsning</h2>
+      <p>Har du en opgave, der ikke står på listen? Tag fat i os — vi hjælper gerne og giver dig et uforpligtende tilbud.</p>
+      <a href="kontakt.html" class="btn">Få et tilbud</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="index.html">
+          <span class="monogram">M&amp;B</span>
+          <span class="brand-name">M&amp;B Haveservice<small>Have &amp; Ejendom</small></span>
+        </a>
+        <ul class="footer-nav">
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="ydelser.html">Ydelser</a></li>
+          <li><a href="referencer.html">Referencer</a></li>
+          <li><a href="om-os.html">Om os</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 M&amp;B Haveservice</span>
+        <span>Telefon: [telefon] · E-mail: [email]</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const t = document.getElementById('navToggle');
+    const l = document.getElementById('navLinks');
+    t.addEventListener('click', () => l.classList.toggle('open'));
+  </script>
+</body>
+</html>
