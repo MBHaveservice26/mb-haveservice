@@ -81,7 +81,11 @@
 
           <div class="case">
             <figure>
-              <img class="case-img" src="images/fliserens-1.webp" alt="Fliserens af bænkeområde og cykelskur — før og efter">
+              <div class="img-wrap">
+                <img class="case-img case-img-auto" src="images/fliserens-1.webp" alt="Fliserens af bænkeområde og cykelskur — før og efter">
+                <span class="tag">Før</span>
+                <span class="tag tag-right">Efter</span>
+              </div>
               <figcaption>Fliserens — bænkeområde og cykelskur</figcaption>
               <p class="sub">Privat villa · Forhave</p>
             </figure>
@@ -89,7 +93,10 @@
 
           <div class="case">
             <figure>
-              <img class="case-img" src="images/have-gang-1.webp" alt="Fliserens af indgang og terrassesti — før og efter">
+              <div class="beforeafter">
+                <div class="ba-item"><span class="tag">Før</span><img src="images/have-gang-1-foer.webp" alt="Fliserens indgang og terrassesti — før"></div>
+                <div class="ba-item"><span class="tag">Efter</span><img src="images/have-gang-1-efter.webp" alt="Fliserens indgang og terrassesti — efter"></div>
+              </div>
               <figcaption>Fliserens af indgang og terrassesti</figcaption>
               <p class="sub">Privat villa · Indkørsel</p>
             </figure>
@@ -97,7 +104,10 @@
 
           <div class="case">
             <figure>
-              <img class="case-img" src="images/have-gang-2.webp" alt="Fliserens af tørregang og terrasse — før og efter">
+              <div class="beforeafter">
+                <div class="ba-item"><span class="tag">Før</span><img src="images/have-gang-2-foer.webp" alt="Fliserens tørregang og terrasse — før"></div>
+                <div class="ba-item"><span class="tag">Efter</span><img src="images/have-gang-2-efter.webp" alt="Fliserens tørregang og terrasse — efter"></div>
+              </div>
               <figcaption>Fliserens af tørregang og terrasse</figcaption>
               <p class="sub">Privat villa · Baghave</p>
             </figure>
@@ -138,6 +148,12 @@
     </div>
   </section>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="lb-close" id="lbClose">&#x2715;</button>
+    <img id="lbImg" src="" alt="">
+  </div>
+
   <section class="band cta">
     <div class="container">
       <p class="eyebrow">Din have kunne være den næste</p>
@@ -173,6 +189,23 @@
     const t = document.getElementById('navToggle');
     const l = document.getElementById('navLinks');
     t.addEventListener('click', () => l.classList.toggle('open'));
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    document.querySelectorAll('.case-img, .beforeafter img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
+    document.getElementById('lbClose').addEventListener('click', closeLb);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
     // Smooth scroll med offset for sticky header
     document.querySelectorAll('.cat-pill').forEach(link => {
