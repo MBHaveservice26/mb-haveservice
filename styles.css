@@ -296,7 +296,7 @@ section { padding: 110px 0; }
 /* ---------- Kategori-navigation (referencer) ---------- */
 .cat-nav-wrap {
   position: sticky;
-  top: 64px;
+  top: 84px;
   z-index: 90;
   background: var(--cream);
   border-bottom: 1px solid var(--line);
