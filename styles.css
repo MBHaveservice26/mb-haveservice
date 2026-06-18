@@ -245,11 +245,27 @@ section { padding: 110px 0; }
 .split .text p { color: var(--gray); margin-bottom: 20px; }
 
 /* ---------- Why choose us ---------- */
+.why-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.why-text h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 20px; }
+.why-motto {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.why-img img { width: 100%; height: 560px; object-fit: cover; }
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 56px;
 }
+.features-left .feature { text-align: left; }
 .feature { text-align: center; }
 .feature .num {
   font-family: var(--serif);
@@ -447,7 +463,9 @@ form textarea { resize: vertical; min-height: 140px; }
 
 /* ---------- Responsivt ---------- */
 @media (max-width: 900px) {
-  .split, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .split, .contact-grid, .why-split { grid-template-columns: 1fr; gap: 48px; }
+  .why-img { order: -1; }
+  .why-img img { height: 320px; }
   .split img { height: 380px; }
   .features { grid-template-columns: 1fr; gap: 48px; }
   .services-list, .gallery, .founders { grid-template-columns: 1fr; }
