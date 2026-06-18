@@ -49,45 +49,91 @@
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <!-- Kategori-navigation -->
+  <div class="cat-nav-wrap">
     <div class="container">
-      <div class="gallery">
+      <nav class="cat-nav" id="catNav">
+        <a href="#fliserens" class="cat-pill">Fliserens</a>
+        <a href="#graesslaaning" class="cat-pill">Græsslåning</a>
+        <a href="#haekklipning" class="cat-pill">Hækklipning</a>
+        <a href="#ukrudt" class="cat-pill">Ukrudtsbekæmpelse</a>
+      </nav>
+    </div>
+  </div>
 
-        <div class="case">
-          <figure>
-            <div class="beforeafter">
-              <div class="ba-item"><span class="tag">Før</span><img src="images/have-foer.webp" alt="Gårdhave før fliserens"></div>
-              <div class="ba-item"><span class="tag">Efter</span><img src="images/have-efter.webp" alt="Gårdhave efter fliserens"></div>
-            </div>
-            <figcaption>Fliserens af gårdhave</figcaption>
-            <p class="sub">Privat villa · Baghave</p>
-          </figure>
+  <!-- Fliserens -->
+  <section class="cat-section" id="fliserens">
+    <div class="container">
+      <div class="gallery-category">
+        <p class="category-label">Fliserens</p>
+        <div class="gallery">
+
+          <div class="case">
+            <figure>
+              <div class="beforeafter">
+                <div class="ba-item"><span class="tag">Før</span><img src="images/have-foer.webp" alt="Gårdhave før fliserens"></div>
+                <div class="ba-item"><span class="tag">Efter</span><img src="images/have-efter.webp" alt="Gårdhave efter fliserens"></div>
+              </div>
+              <figcaption>Fliserens af gårdhave</figcaption>
+              <p class="sub">Privat villa · Baghave</p>
+            </figure>
+          </div>
+
+          <div class="case">
+            <figure>
+              <img class="case-img" src="images/fliserens-1.webp" alt="Fliserens af bænkeområde og cykelskur — før og efter">
+              <figcaption>Fliserens — bænkeområde og cykelskur</figcaption>
+              <p class="sub">Privat villa · Forhave</p>
+            </figure>
+          </div>
+
+          <div class="case">
+            <figure>
+              <img class="case-img" src="images/have-gang-1.webp" alt="Fliserens af indgang og terrassesti — før og efter">
+              <figcaption>Fliserens af indgang og terrassesti</figcaption>
+              <p class="sub">Privat villa · Indkørsel</p>
+            </figure>
+          </div>
+
+          <div class="case">
+            <figure>
+              <img class="case-img" src="images/have-gang-2.webp" alt="Fliserens af tørregang og terrasse — før og efter">
+              <figcaption>Fliserens af tørregang og terrasse</figcaption>
+              <p class="sub">Privat villa · Baghave</p>
+            </figure>
+          </div>
+
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="case">
-          <figure>
-            <img src="images/fliserens-1.webp" alt="Fliserens af bænkeområde og cykelskur — før og efter" style="width:100%;height:auto;display:block;border-radius:2px;">
-            <figcaption>Fliserens — bænkeområde og cykelskur</figcaption>
-            <p class="sub">Privat villa · Forhave</p>
-          </figure>
-        </div>
+  <!-- Græsslåning -->
+  <section class="cat-section" id="graesslaaning">
+    <div class="container">
+      <div class="gallery-category">
+        <p class="category-label">Græsslåning</p>
+        <p class="refs-soon">Billeder kommer løbende — følg med her.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="case">
-          <figure>
-            <img src="images/have-gang-1.webp" alt="Fliserens af indgang og terrassesti — før og efter" style="width:100%;height:auto;display:block;border-radius:2px;">
-            <figcaption>Fliserens af indgang og terrassesti</figcaption>
-            <p class="sub">Privat villa · Indkørsel</p>
-          </figure>
-        </div>
+  <!-- Hækklipning -->
+  <section class="cat-section" id="haekklipning">
+    <div class="container">
+      <div class="gallery-category">
+        <p class="category-label">Hækklipning</p>
+        <p class="refs-soon">Billeder kommer løbende — følg med her.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="case">
-          <figure>
-            <img src="images/have-gang-2.webp" alt="Fliserens af tørregang og terrasse — før og efter" style="width:100%;height:auto;display:block;border-radius:2px;">
-            <figcaption>Fliserens af tørregang og terrasse</figcaption>
-            <p class="sub">Privat villa · Baghave</p>
-          </figure>
-        </div>
-
+  <!-- Ukrudtsbekæmpelse -->
+  <section class="cat-section" id="ukrudt">
+    <div class="container">
+      <div class="gallery-category">
+        <p class="category-label">Ukrudtsbekæmpelse</p>
+        <p class="refs-soon">Billeder kommer løbende — følg med her.</p>
       </div>
     </div>
   </section>
@@ -127,6 +173,32 @@
     const t = document.getElementById('navToggle');
     const l = document.getElementById('navLinks');
     t.addEventListener('click', () => l.classList.toggle('open'));
+
+    // Smooth scroll med offset for sticky header
+    document.querySelectorAll('.cat-pill').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    // Aktiv pill ved scroll
+    const sections = document.querySelectorAll('.cat-section');
+    const pills = document.querySelectorAll('.cat-pill');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          pills.forEach(p => p.classList.remove('active'));
+          const active = document.querySelector(`.cat-pill[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(s => observer.observe(s));
   </script>
 </body>
 </html>
