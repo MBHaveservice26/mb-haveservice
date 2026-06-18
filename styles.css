@@ -363,6 +363,7 @@ section { padding: 110px 0; }
 }
 .beforeafter .ba-item { position: relative; }
 .beforeafter img { width: 100%; height: 300px; object-fit: cover; }
+.beforeafter-lg img { height: 520px; }
 .img-wrap { position: relative; }
 .tag {
   position: absolute;
