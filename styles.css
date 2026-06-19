@@ -93,9 +93,11 @@ img { display: block; max-width: 100%; }
   gap: 14px;
 }
 .brand-logo {
-  height: 54px;
+  height: 90px;
   width: auto;
+  max-width: 200px;
   display: block;
+  flex-shrink: 0;
 }
 .brand-logo-footer {
   filter: brightness(0) invert(1);
