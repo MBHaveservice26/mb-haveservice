@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M&B Haveservice — Få mere tid til det, der betyder noget</title>
-  <meta name="description" content="M&B Haveservice tilbyder professionel have- og ejendomsservice til private. Pålidelig, detaljeorienteret og altid til tiden.">
+  <title>M&B — Havepleje & Bilrengøring</title>
+  <meta name="description" content="M&B tilbyder professionel havepleje og indvendig bilrengøring. Vælg din service.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BGMWC7Q1SR"></script>
   <script>
@@ -17,106 +16,189 @@
     gtag('js', new Date());
     gtag('config', 'G-BGMWC7Q1SR');
   </script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream: #FAF3EA;
+      --ink: #1C1B19;
+      --accent: #3E4A3D;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Inter", -apple-system, sans-serif;
+    }
+    html, body { height: 100%; font-family: var(--sans); }
+
+    .split-wrap {
+      display: flex;
+      height: 100vh;
+      min-height: 600px;
+    }
+
+    .split-side {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      overflow: hidden;
+      transition: flex 0.5s ease;
+      cursor: pointer;
+    }
+    .split-side:hover { flex: 1.35; }
+
+    .split-side .bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s ease;
+    }
+    .split-side:hover .bg { transform: scale(1.04); }
+
+    .split-side .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(28,27,25,0.45);
+      transition: background 0.4s ease;
+    }
+    .split-side:hover .overlay { background: rgba(28,27,25,0.3); }
+
+    .split-side .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+      padding: 40px 32px;
+    }
+
+    .split-side .eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+    }
+
+    .split-side h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+
+    .split-side p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      max-width: 280px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .split-btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border: 1px solid rgba(255,255,255,0.8);
+      color: #fff;
+      background: transparent;
+      transition: all 0.25s ease;
+    }
+    .split-side:hover .split-btn {
+      background: #fff;
+      color: var(--ink);
+      border-color: #fff;
+    }
+
+    .divider {
+      position: relative;
+      width: 1px;
+      background: rgba(255,255,255,0.25);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .divider-logo {
+      position: absolute;
+      background: rgba(250,243,234,0.95);
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 11;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+    .divider-logo img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+
+    /* Have-siden: grøn have */
+    .side-have .bg {
+      background-image: url('images/have-efter.webp');
+    }
+
+    /* Bil-siden: mørk neutral */
+    .side-bil .bg {
+      background-image: url('images/forside-1.webp');
+      background-position: center 60%;
+    }
+
+    /* Mobil */
+    @media (max-width: 700px) {
+      .split-wrap { flex-direction: column; height: auto; min-height: 100vh; }
+      .split-side { min-height: 50vh; flex: 1 !important; }
+      .divider { width: 100%; height: 1px; }
+      .divider-logo { top: 50%; transform: translateY(-50%); }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="index.html">
-        <img src="images/Main logo.png" alt="M&B Haveservice" class="brand-logo">
-      </a>
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html" class="active">Forside</a></li>
-          <li><a href="ydelser.html">Ydelser</a></li>
-          <li><a href="referencer.html">Referencer</a></li>
-          <li><a href="om-os.html">Holdet</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <div class="split-wrap">
 
-  <!-- Hero -->
-  <section class="hero">
-    <img class="hero-bg" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=2000&q=80" alt="Velplejet have i aftenlys">
-    <div class="hero-inner">
-      <h1>M&amp;B Haveservice</h1>
-      <p class="slogan">Få mere tid til det, der betyder noget</p>
-      <a href="ydelser.html" class="btn">Se vores ydelser</a>
-    </div>
-  </section>
+    <!-- Havepleje -->
+    <a class="split-side side-have" href="have.html">
+      <div class="bg"></div>
+      <div class="overlay"></div>
+      <div class="content">
+        <p class="eyebrow">Have & Ejendom</p>
+        <h2>Havepleje</h2>
+        <p>Græsslåning, hækklipning, fliserens og meget mere — vi passer din have.</p>
+        <span class="split-btn">Gå til havepleje</span>
+      </div>
+    </a>
 
-  <!-- Intro -->
-  <section>
-    <div class="container split">
-      <img src="images/forside-1.webp" alt="Have og fliser">
-      <div class="text">
-        <p class="eyebrow">Velkommen</p>
-        <h2 style="font-size:clamp(1.9rem,4vw,2.7rem); margin-bottom:24px;">Vi passer haven, så du slipper.</h2>
-        <p>M&amp;B Haveservice er en nystartet virksomhed drevet af to unge fyre med mere end 3 års erfaring inden for havepleje og ejendomsservice. Vi tager os af din have og ejendom, så du kan bruge din tid på det, der betyder mest.</p>
-        <p>Vi er et lille team, hvilket betyder, at du altid møder de samme ansigter. Det sikrer en personlig service, hvor hver opgave udføres med omhu og sans for detaljerne.</p>
-        <a href="om-os.html" class="btn-ghost btn" style="margin-top:8px;">Mød os</a>
+    <!-- Skillelinje med logo -->
+    <div class="divider">
+      <div class="divider-logo">
+        <img src="images/Main logo.png" alt="M&B">
       </div>
     </div>
-  </section>
 
-  <!-- Why choose us -->
-  <section class="band">
-    <div class="container">
-      <div class="why-split">
-        <div class="why-text">
-          <p class="eyebrow">Hvorfor vælge os</p>
-          <h2>Overlad haven — og genvind din tid</h2>
-          <p class="why-motto">Få mere tid til det, der betyder noget</p>
-          <p style="color:var(--gray);">Vi har samlet alle dine sædvanlige havepligter ét sted. Så du har én pålidelig relation til det hele. Overlad det overskuelige til os, og få mere tid til det der virkelig tæller for dig. Vi møder op, passer din have og leverer et godt stykke arbejde.</p>
-        </div>
-        <div class="why-img">
-          <img src="images/have-efter.webp" alt="Velplejet have">
-        </div>
+    <!-- Bilrengøring -->
+    <a class="split-side side-bil" href="bilrengoring.html">
+      <div class="bg"></div>
+      <div class="overlay"></div>
+      <div class="content">
+        <p class="eyebrow">Efterår & Vinter</p>
+        <h2>Bilrengøring</h2>
+        <p>Indvendig bilrengøring — vi kommer til dig og gør din bil klar indefra.</p>
+        <span class="split-btn">Gå til bilrengøring</span>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <!-- CTA -->
-  <section class="cta">
-    <div class="container">
-      <p class="eyebrow">Klar når du er</p>
-      <h2>Lad os tage hånd om din have</h2>
-      <p>Kontakt os for en uforpligtende snak om dine behov.</p>
-      <a href="kontakt.html" class="btn">Kontakt os</a>
-    </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <a class="brand" href="index.html">
-          <img src="images/Main logo.png" alt="M&B Haveservice" class="brand-logo brand-logo-footer">
-        </a>
-        <ul class="footer-nav">
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="ydelser.html">Ydelser</a></li>
-          <li><a href="referencer.html">Referencer</a></li>
-          <li><a href="om-os.html">Holdet</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 M&amp;B Haveservice</span>
-        <span>Telefon: <a href="tel:+4593900407">93 90 04 07</a> · E-mail: <a href="mailto:mbhaveservicer@gmail.com">mbhaveservicer@gmail.com</a></span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const t = document.getElementById('navToggle');
-    const l = document.getElementById('navLinks');
-    t.addEventListener('click', () => l.classList.toggle('open'));
-  </script>
 </body>
 </html>
